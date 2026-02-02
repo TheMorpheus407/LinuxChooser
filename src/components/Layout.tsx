@@ -2,6 +2,8 @@ import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const MotionLink = motion.create(Link);
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -17,8 +19,8 @@ export default function Layout({ children }: LayoutProps) {
       </a>
 
       <header className="header">
-        <motion.a
-          href={import.meta.env.BASE_URL}
+        <MotionLink
+          to="/"
           className="logo-link"
           aria-label="Zur Startseite"
           whileHover={{ scale: 1.02 }}
@@ -35,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
               onError={() => setLogoError(true)}
             />
           )}
-        </motion.a>
+        </MotionLink>
         <nav className="header-nav">
           <Link to="/distros" className="nav-link">Distributionen</Link>
         </nav>
