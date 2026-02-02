@@ -5,7 +5,7 @@ An interactive quiz that helps users find the best Linux distribution based on t
 
 ![LinuxChooser](https://img.shields.io/badge/🇩🇪_German-Fully_localized-black?style=for-the-badge)
 
-**[👉 Try it now](https://eisbxr.github.io/LinuxChooser/)**
+**[👉 Try it now](https://themorpheus407.github.io/LinuxChooser/)**
 
 ---
 
@@ -44,7 +44,7 @@ An interactive quiz that helps users find the best Linux distribution based on t
 
 ```bash
 # Clone the repository
-git clone https://github.com/eisbxr/LinuxChooser.git
+git clone https://github.com/TheMorpheus407/LinuxChooser.git
 cd LinuxChooser
 
 # Install dependencies
