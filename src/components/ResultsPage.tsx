@@ -137,7 +137,7 @@ export default function ResultsPage() {
   const handleShare = async () => {
     // Build share URL with result parameters
     const shareUrl = topResult
-      ? `${window.location.origin}/ergebnis?distro=${encodeURIComponent(topResult.distroId)}&de=${encodeURIComponent(topResult.desktopEnvId)}&score=${topResult.score}`
+      ? `${window.location.origin}${import.meta.env.BASE_URL}ergebnis?distro=${encodeURIComponent(topResult.distroId)}&de=${encodeURIComponent(topResult.desktopEnvId)}&score=${topResult.score}`
       : window.location.href;
     const shareText = topResult
       ? `Meine Linux-Empfehlung: ${topResult.name} mit ${topResult.desktopName}! Finde deine perfekte Distribution:`
