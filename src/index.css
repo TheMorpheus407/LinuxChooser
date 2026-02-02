@@ -83,6 +83,7 @@
   /* Layout */
   --header-height: 4rem;
   --footer-height: 3.5rem;
+  --mobile-sidebar-height: 60px;
   --sidebar-width: 320px;
   --max-content-width: 800px;
 }
@@ -226,7 +227,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
-  padding-bottom: calc(var(--footer-height) + 60px + var(--spacing-xl));
+  padding-bottom: calc(var(--footer-height) + var(--mobile-sidebar-height) + var(--spacing-xl));
 }
 
 @media (min-width: 768px) {
@@ -235,6 +236,8 @@ button:disabled {
   }
 }
 
+/* Fixed footer: always visible at viewport bottom. Content areas use
+   padding-bottom to prevent overlap (see --footer-height in :root). */
 .footer {
   height: var(--footer-height);
   padding: 0 var(--spacing-md);
@@ -246,8 +249,16 @@ button:disabled {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 80;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+}
+
+@media (max-width: 767px) {
+  .footer {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
 }
 
 .footer-content {
