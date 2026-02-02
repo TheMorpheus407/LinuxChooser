@@ -10,6 +10,10 @@ import type { DistroScore } from '../context/QuizContext';
 const DOWNLOAD_LINKS: Record<string, string> = {
   'linux-mint': 'https://linuxmint.com/download.php',
   'ubuntu': 'https://ubuntu.com/download/desktop',
+  'ubuntu-budgie': 'https://ubuntubudgie.org/downloads/',
+  'ubuntu-cinnamon': 'https://ubuntucinnamon.org/download/',
+  'ubuntu-mate': 'https://ubuntu-mate.org/download/',
+  'ubuntu-studio': 'https://ubuntustudio.org/download/',
   'fedora': 'https://fedoraproject.org/workstation/download',
   'pop-os': 'https://pop.system76.com/',
   'manjaro': 'https://manjaro.org/download/',
@@ -36,6 +40,7 @@ const DOWNLOAD_LINKS: Record<string, string> = {
   'linuxlite': 'https://www.linuxliteos.com/download.php',
   'lubuntu': 'https://lubuntu.me/downloads/',
   'kdeneon': 'https://neon.kde.org/download',
+  'xubuntu': 'https://xubuntu.org/download/',
 };
 
 export default function ResultsPage() {

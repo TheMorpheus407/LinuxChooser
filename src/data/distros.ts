@@ -131,7 +131,7 @@ export const distros: Distro[] = [
     professionalUse: 8,
     privacyFocus: 5,
 
-    availableDEs: ['gnome', 'kde', 'xfce', 'mate', 'budgie', 'lxqt'],
+    availableDEs: ['gnome'],
     defaultDE: 'gnome',
 
     packageManager: 'apt',
@@ -1218,6 +1218,55 @@ export const distros: Distro[] = [
     basedOn: 'ubuntu',
   },
   {
+    id: 'xubuntu',
+    name: 'Xubuntu',
+    logo: '/distros/xubuntu.svg',
+    description: 'Ubuntu mit Xfce - stabil, leicht und konfigurierbar.',
+    website: 'https://xubuntu.org',
+
+    beginnerFriendly: 8,
+    stability: 8,
+    cuttingEdge: 6,
+    customizability: 8,
+    performance: 8,
+    gamingSupport: 7,
+    hardwareSupport: 9,
+    communitySupport: 7,
+    professionalUse: 7,
+    privacyFocus: 5,
+
+    availableDEs: ['xfce'],
+    defaultDE: 'xfce',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: true,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'fixed',
+
+    minRAM: 1,
+    minStorage: 20,
+
+    features: ['Xfce Desktop', 'Whisker Menu', 'Ubuntu Basis', 'Ressourcenschonend'],
+    warnings: [
+      'Weniger moderne Optik als KDE/GNOME',
+      'Kleinere Community als Hauptvarianten',
+    ],
+    bestFor: [
+      'Nutzer, die Balance zwischen Leistung und Funktionen suchen',
+      'Besitzer älterer oder schwächerer Hardware',
+      'Nutzer, die Ubuntu-Kompatibilität wollen',
+    ],
+    notFor: [
+      'Nutzer, die modernste Optik wollen',
+      'Touch-Geräte-Nutzer',
+    ],
+    installDifficulty: 2,
+    basedOn: 'ubuntu',
+  },
+  {
     id: 'kdeneon',
     name: 'KDE neon',
     logo: '/distros/kdeneon.svg',
@@ -1268,6 +1317,146 @@ export const distros: Distro[] = [
       'NVIDIA-GPU-Nutzer',
     ],
     installDifficulty: 4,
+    basedOn: 'ubuntu',
+  },
+  {
+    id: 'ubuntu-budgie',
+    name: 'Ubuntu Budgie',
+    logo: '/distros/ubuntu-budgie.svg',
+    description: 'Ubuntu mit Budgie Desktop - elegant, modern und benutzerfreundlich.',
+    website: 'https://ubuntubudgie.org',
+
+    beginnerFriendly: 8,
+    stability: 8,
+    cuttingEdge: 6,
+    customizability: 7,
+    performance: 7,
+    gamingSupport: 7,
+    hardwareSupport: 9,
+    communitySupport: 6,
+    professionalUse: 7,
+    privacyFocus: 5,
+
+    availableDEs: ['budgie'],
+    defaultDE: 'budgie',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: true,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'fixed',
+
+    minRAM: 2,
+    minStorage: 25,
+
+    features: ['Budgie Desktop', 'Budgie Welcome', 'Ubuntu Basis', 'Moderne Oberfläche'],
+    basedOn: 'ubuntu',
+  },
+  {
+    id: 'ubuntu-studio',
+    name: 'Ubuntu Studio',
+    logo: '/distros/ubuntu-studio.svg',
+    description: 'Ubuntu für Kreative - Audio, Video, Grafik und Publishing mit professionellen Tools.',
+    website: 'https://ubuntustudio.org',
+
+    beginnerFriendly: 6,
+    stability: 8,
+    cuttingEdge: 6,
+    customizability: 8,
+    performance: 7,
+    gamingSupport: 6,
+    hardwareSupport: 8,
+    communitySupport: 6,
+    professionalUse: 9,
+    privacyFocus: 5,
+
+    availableDEs: ['kde'],
+    defaultDE: 'kde',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: true,
+
+    targetAudience: ['intermediate', 'advanced', 'developer'],
+    releaseModel: 'fixed',
+
+    minRAM: 4,
+    minStorage: 30,
+
+    features: ['Low-Latency Kernel', 'Audio Production', 'Video Editing', 'Grafik Tools', 'KDE Plasma'],
+    basedOn: 'ubuntu',
+  },
+  {
+    id: 'ubuntu-mate',
+    name: 'Ubuntu MATE',
+    logo: '/distros/ubuntu-mate.svg',
+    description: 'Ubuntu mit MATE Desktop - traditionell, effizient und anpassbar.',
+    website: 'https://ubuntu-mate.org',
+
+    beginnerFriendly: 8,
+    stability: 8,
+    cuttingEdge: 6,
+    customizability: 8,
+    performance: 7,
+    gamingSupport: 7,
+    hardwareSupport: 9,
+    communitySupport: 7,
+    professionalUse: 7,
+    privacyFocus: 5,
+
+    availableDEs: ['mate'],
+    defaultDE: 'mate',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: true,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'fixed',
+
+    minRAM: 2,
+    minStorage: 20,
+
+    features: ['MATE Desktop', 'Compiz', 'Ubuntu Basis', 'Traditionelles Layout'],
+    basedOn: 'ubuntu',
+  },
+  {
+    id: 'ubuntu-cinnamon',
+    name: 'Ubuntu Cinnamon',
+    logo: '/distros/ubuntu-cinnamon.svg',
+    description: 'Ubuntu mit Cinnamon Desktop - vertraut, modern und Windows-ähnlich.',
+    website: 'https://ubuntucinnamon.org',
+
+    beginnerFriendly: 9,
+    stability: 8,
+    cuttingEdge: 6,
+    customizability: 8,
+    performance: 7,
+    gamingSupport: 7,
+    hardwareSupport: 9,
+    communitySupport: 6,
+    professionalUse: 7,
+    privacyFocus: 5,
+
+    availableDEs: ['cinnamon'],
+    defaultDE: 'cinnamon',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: true,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'fixed',
+
+    minRAM: 2,
+    minStorage: 25,
+
+    features: ['Cinnamon Desktop', 'Windows-ähnlich', 'Ubuntu Basis', 'Nemo Dateimanager'],
     basedOn: 'ubuntu',
   },
 ];
