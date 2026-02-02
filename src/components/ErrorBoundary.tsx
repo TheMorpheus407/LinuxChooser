@@ -30,7 +30,7 @@ class ErrorBoundary extends Component<Props, State> {
 
   handleRestart = (): void => {
     this.setState({ hasError: false, error: null });
-    window.location.href = '/';
+    window.location.href = import.meta.env.BASE_URL;
   };
 
   render() {

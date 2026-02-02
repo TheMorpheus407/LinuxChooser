@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
 
       <header className="header">
         <motion.a
-          href="/"
+          href={import.meta.env.BASE_URL}
           className="logo-link"
           aria-label="Zur Startseite"
           whileHover={{ scale: 1.02 }}
@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
             <span className="logo-text">Linux Chooser</span>
           ) : (
             <img
-              src="/MO-logo_transparent_WHITE_445813.png"
+              src={`${import.meta.env.BASE_URL}MO-logo_transparent_WHITE_445813.png`}
               alt="Morpheus Logo"
               className="logo"
               loading="lazy"
