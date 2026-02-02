@@ -146,6 +146,12 @@ export function checkHardwareCompatibility(answers: UserAnswers): DealBreakerWar
     suggestions.push('NVIDIA-Treiber erfordern manchmal manuelle Installation. Distributionen wie Pop!_OS, Linux Mint oder Nobara machen dies einfacher.');
   }
 
+  // Intel Arc considerations
+  if (gpu === 'intel-arc') {
+    warnings.push('Intel Arc Grafikkarte erkannt');
+    suggestions.push('Intel Arc erfordert einen relativ neuen Kernel (6.2+ fuer A-Serie, 6.11+ fuer B-Serie) und aktuelle Mesa-Treiber. Rolling-Release Distributionen wie Arch, Fedora, oder openSUSE Tumbleweed bieten die beste Unterstuetzung.');
+  }
+
   // Very old hardware
   if (computerAge === 'vintage') {
     warnings.push('Sehr alter Computer (10+ Jahre)');

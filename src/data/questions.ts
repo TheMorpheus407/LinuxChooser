@@ -324,10 +324,16 @@ export const questions: Question[] = [
         icon: 'gpu',
       },
       {
-        id: 'intel',
+        id: 'intel-igpu',
         text: 'Intel (integriert)',
-        description: 'In der CPU integriert',
+        description: 'In der CPU integriert (Iris Xe, UHD Graphics)',
         icon: 'cpu',
+      },
+      {
+        id: 'intel-arc',
+        text: 'Intel Arc',
+        description: 'Separate Grafikkarte (Arc A-Serie, B-Serie)',
+        icon: 'gpu',
       },
       {
         id: 'unknown',

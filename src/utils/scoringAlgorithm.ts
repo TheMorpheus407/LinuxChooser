@@ -29,6 +29,8 @@ export interface UserProfile {
   hasLimitedRAM: boolean;
   ramAmount: number | null; // in GB
   hasNvidia: boolean;
+  hasIntelArc: boolean;
+  hasIntelIGPU: boolean;
   hasOldHardware: boolean;
 
   // Desktop preferences
@@ -86,6 +88,8 @@ export function buildUserProfile(answers: UserAnswers): UserProfile {
     hasLimitedRAM: false,
     ramAmount: null,
     hasNvidia: false,
+    hasIntelArc: false,
+    hasIntelIGPU: false,
     hasOldHardware: false,
     prefersWindowsLike: false,
     prefersMacLike: false,
@@ -242,6 +246,10 @@ export function buildUserProfile(answers: UserAnswers): UserProfile {
   const gpu = answers['gpu'] as string;
   if (gpu === 'nvidia') {
     profile.hasNvidia = true;
+  } else if (gpu === 'intel-arc') {
+    profile.hasIntelArc = true;
+  } else if (gpu === 'intel-igpu') {
+    profile.hasIntelIGPU = true;
   }
 
   // Process desktop style
@@ -446,6 +454,18 @@ export function calculateDistroMatch(profile: UserProfile, distro: Distro): numb
     }
   }
 
+  // Intel Arc support (requires recent kernels and Mesa)
+  if (profile.hasIntelArc) {
+    const hwScore = distro.hardwareSupport * WEIGHTS.hardwareSupport;
+    score += hwScore;
+    maxScore += 10 * WEIGHTS.hardwareSupport;
+
+    // Bonus for distros with rolling releases or recent kernels (Intel Arc needs kernel 6.2+ and recent Mesa)
+    if (['arch', 'fedora', 'nobara', 'cachyos', 'endeavouros', 'manjaro', 'opensuse-tumbleweed'].includes(distro.id)) {
+      score += 8;
+    }
+  }
+
   // German community support
   if (profile.needsGermanCommunity) {
     const communityScore = distro.communitySupport * WEIGHTS.communitySupport;
@@ -610,6 +630,11 @@ export function generateMatchReasons(
     reasons.push(`Gute NVIDIA-Unterstuetzung out-of-the-box.`);
   }
 
+  // Intel Arc
+  if (profile.hasIntelArc && ['arch', 'fedora', 'nobara', 'cachyos', 'endeavouros', 'manjaro', 'opensuse-tumbleweed'].includes(distro.id)) {
+    reasons.push(`Ausgezeichnete Intel Arc-Unterstuetzung durch aktuelle Kernel und Mesa-Treiber.`);
+  }
+
   // Desktop environment
   if (profile.prefersWindowsLike && de.windowsLike >= 7) {
     reasons.push(`${de.name} bietet ein Windows-aehnliches Layout - ideal fuer Umsteiger.`);
@@ -679,6 +704,11 @@ export function generateWarnings(
   // NVIDIA on some distros
   if (profile.hasNvidia && ['debian', 'fedora'].includes(distro.id)) {
     warnings.push(`NVIDIA-Treiber-Installation kann bei ${distro.name} zusaetzliche Schritte erfordern.`);
+  }
+
+  // Intel Arc warnings for distros with older kernels
+  if (profile.hasIntelArc && ['debian', 'linux-mint', 'ubuntu'].includes(distro.id)) {
+    warnings.push(`Intel Arc erfordert aktuelle Kernel (6.2+) und Mesa-Treiber. Bei ${distro.name} sind moeglicherweise zusaetzliche Schritte noetig.`);
   }
 
   // Rolling release for stability seekers
