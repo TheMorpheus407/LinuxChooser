@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 interface LayoutProps {
@@ -35,6 +36,9 @@ export default function Layout({ children }: LayoutProps) {
             />
           )}
         </motion.a>
+        <nav className="header-nav">
+          <Link to="/distros" className="nav-link">Distributionen</Link>
+        </nav>
       </header>
 
       <main id="main-content" className="main-content" tabIndex={-1}>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { QuizProvider } from './context/QuizContext';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
+import BrowseDistrosPage from './components/BrowseDistrosPage';
 import Question from './components/Question';
 import LiveSidebar from './components/LiveSidebar';
 import './App.css';
@@ -53,6 +54,7 @@ function App() {
                 <ResultsPage />
               </Suspense>
             } />
+            <Route path="/distros" element={<BrowseDistrosPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

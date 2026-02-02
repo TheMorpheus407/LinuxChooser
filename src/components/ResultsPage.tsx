@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuiz } from '../hooks/useQuiz';
 import { useState, useMemo } from 'react';
@@ -513,6 +513,13 @@ export default function ResultsPage() {
             </svg>
             Neu starten
           </button>
+
+          <Link to="/distros" className="browse-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+            </svg>
+            Alle Distributionen ansehen
+          </Link>
         </motion.div>
 
         {/* Share message toast */}

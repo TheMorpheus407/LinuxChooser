@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function LandingPage() {
@@ -80,20 +80,33 @@ export default function LandingPage() {
           </div>
         </motion.div>
 
-        <motion.button
-          className="cta-button"
-          onClick={handleStart}
+        <motion.div
+          className="landing-buttons"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
-          Los geht's
-          <svg className="cta-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-          </svg>
-        </motion.button>
+          <motion.button
+            className="cta-button"
+            onClick={handleStart}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Los geht's
+            <svg className="cta-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+            </svg>
+          </motion.button>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link to="/distros" className="browse-link">
+              Alle Distributionen ansehen
+            </Link>
+          </motion.div>
+        </motion.div>
 
         <motion.p
           className="landing-note"
