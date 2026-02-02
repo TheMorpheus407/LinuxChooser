@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# 🐧 LinuxChooser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Find your perfect Linux distribution!**
+An interactive quiz that helps users find the best Linux distribution based on their needs, experience, and preferences.
 
-Currently, two official plugins are available:
+![LinuxChooser](https://img.shields.io/badge/🇩🇪_German-Fully_localized-black?style=for-the-badge)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[👉 Try it now](https://eisbxr.github.io/LinuxChooser/)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🎯 **Personalized Recommendations** – Smart scoring algorithm based on real user requirements
+- 🖥️ **26+ Distributions** – From beginner-friendly (Linux Mint, Ubuntu) to expert distros (Arch, Gentoo, NixOS)
+- 🔍 **Browse & Filter** – Explore all distributions with sorting and filtering options
+- 🎨 **Desktop Environments** – Recommendations for the right desktop (GNOME, KDE, Cinnamon, etc.)
+- ⚠️ **Deal-Breaker Warnings** – Honest hints about potential limitations
+- 📊 **Live Rankings** – See in real-time how your answers affect the recommendations
+- 🔗 **Shareable Results** – Share your result with friends via URL
+- 📱 **Responsive Design** – Works on desktop and mobile devices
+- ⚡ **Fast & Modern** – Built with React 19, TypeScript, and Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📋 Supported Distributions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Category          | Distributions                                           |
+| ----------------- | ------------------------------------------------------- |
+| **Beginner**      | Linux Mint, Ubuntu, Zorin OS, elementary OS, Linux Lite |
+| **Intermediate**  | Fedora, Pop!\_OS, openSUSE, Manjaro, Kubuntu, KDE neon  |
+| **Gaming**        | Nobara, Bazzite, Garuda Linux                           |
+| **Privacy**       | Tails, Qubes OS                                         |
+| **Expert**        | Arch Linux, EndeavourOS, Void Linux, Gentoo, NixOS      |
+| **Lightweight**   | antiX, Puppy Linux, Lubuntu, MX Linux                   |
+| **Server/Stable** | Debian                                                  |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Local Development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/eisbxr/LinuxChooser.git
+cd LinuxChooser
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The development server will run at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Available Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command           | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start development server with hot reload |
+| `npm run build`   | Create optimized production build        |
+| `npm run preview` | Preview the production build             |
+| `npm run lint`    | Run ESLint                               |
+
+## 🏗️ Project Structure
+
 ```
+src/
+├── components/              # React components
+│   ├── BrowseDistrosPage.tsx  # Browse all distributions with filters
+│   ├── DistroCard.tsx         # Individual distribution card
+│   ├── DistroFilters.tsx      # Filter controls for browsing
+│   ├── ErrorBoundary.tsx      # Error handling wrapper
+│   ├── LandingPage.tsx        # Landing page
+│   ├── Layout.tsx             # App layout with header/footer
+│   ├── LiveSidebar.tsx        # Real-time rankings during quiz
+│   ├── Question.tsx           # Quiz question component
+│   └── ResultsPage.tsx        # Results page with recommendations
+├── context/                 # React Context for quiz state
+├── data/                    # Distro & question data
+│   ├── distros.ts             # 26+ distributions with attributes
+│   ├── questions.ts           # Quiz questions (German)
+│   └── desktopEnvironments.ts # Desktop environment definitions
+├── hooks/                   # Custom React hooks
+└── utils/                   # Scoring algorithm & helper functions
+```
+
+<p align="center">
+  Made with ❤️ for the Linux community
+</p>
