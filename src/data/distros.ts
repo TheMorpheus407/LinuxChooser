@@ -661,6 +661,60 @@ export const distros: Distro[] = [
     basedOn: 'arch',
   },
   {
+    id: 'cachyos',
+    name: 'CachyOS',
+    logo: '/distros/cachyos.svg',
+    description: 'Performance-optimiertes Arch Linux mit eigenem Kernel und CPU-spezifischen Optimierungen. Ideal für Gaming und maximale Geschwindigkeit.',
+    website: 'https://cachyos.org',
+    version: 'Rolling',
+    releaseDate: 'Januar 2026',
+
+    beginnerFriendly: 5,
+    stability: 7,
+    cuttingEdge: 10,
+    customizability: 9,
+    performance: 10,
+    gamingSupport: 10,
+    hardwareSupport: 9,
+    communitySupport: 7,
+    professionalUse: 7,
+    privacyFocus: 6,
+
+    availableDEs: ['kde', 'gnome', 'xfce', 'hyprland', 'i3', 'sway'],
+    defaultDE: 'kde',
+
+    packageManager: 'pacman',
+    hasAUR: true,
+    hasFlatpak: true,
+    hasSnap: false,
+
+    targetAudience: ['gamer', 'intermediate', 'advanced', 'developer'],
+    releaseModel: 'rolling',
+
+    minRAM: 2,
+    minStorage: 20,
+
+    features: ['BORE/EEVDF Scheduler', 'x86-64-v3/v4 Optimierungen', 'CachyOS Kernel Manager', 'Ein-Klick Gaming Setup', 'Hardware Auto-Erkennung'],
+    warnings: [
+      'Rolling Release - regelmäßige Updates erforderlich',
+      'Moderne CPU erforderlich (ab 2013)',
+      'Arch-basiert - erfordert grundlegende Linux-Kenntnisse',
+    ],
+    bestFor: [
+      'Performance-Enthusiasten',
+      'Linux-Gamer',
+      'Nutzer mit moderner Hardware',
+      'Entwickler, die Geschwindigkeit schätzen',
+    ],
+    notFor: [
+      'Absolute Linux-Einsteiger',
+      'Nutzer mit sehr alter Hardware (vor 2013)',
+      'Nutzer, die maximale Stabilität brauchen',
+    ],
+    installDifficulty: 4,
+    basedOn: 'arch',
+  },
+  {
     id: 'mx-linux',
     name: 'MX Linux',
     logo: '/distros/mxlinux.svg',

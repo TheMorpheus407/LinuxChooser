@@ -23,6 +23,7 @@ const DOWNLOAD_LINKS: Record<string, string> = {
   'endeavouros': 'https://endeavouros.com/latest-release/',
   'nobara': 'https://nobaraproject.org/download/',
   'garuda': 'https://garudalinux.org/downloads.html',
+  'cachyos': 'https://cachyos.org/download/',
   'mx-linux': 'https://mxlinux.org/download-links/',
   'tails': 'https://tails.net/install/',
   'qubes': 'https://www.qubes-os.org/downloads/',

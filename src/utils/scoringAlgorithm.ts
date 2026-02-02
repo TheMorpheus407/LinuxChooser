@@ -441,7 +441,7 @@ export function calculateDistroMatch(profile: UserProfile, distro: Distro): numb
     maxScore += 10 * WEIGHTS.hardwareSupport;
 
     // Bonus for distros known for good NVIDIA support
-    if (['pop-os', 'nobara', 'manjaro', 'linux-mint'].includes(distro.id)) {
+    if (['pop-os', 'nobara', 'manjaro', 'linux-mint', 'cachyos'].includes(distro.id)) {
       score += 5;
     }
   }
@@ -606,7 +606,7 @@ export function generateMatchReasons(
   }
 
   // NVIDIA
-  if (profile.hasNvidia && ['pop-os', 'nobara', 'manjaro', 'linux-mint'].includes(distro.id)) {
+  if (profile.hasNvidia && ['pop-os', 'nobara', 'manjaro', 'linux-mint', 'cachyos'].includes(distro.id)) {
     reasons.push(`Gute NVIDIA-Unterstuetzung out-of-the-box.`);
   }
 
