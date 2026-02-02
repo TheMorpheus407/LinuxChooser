@@ -13,6 +13,7 @@ An interactive quiz that helps users find the best Linux distribution based on t
 
 - 🎯 **Personalized Recommendations** – Smart scoring algorithm based on real user requirements
 - 🖥️ **26+ Distributions** – From beginner-friendly (Linux Mint, Ubuntu) to expert distros (Arch, Gentoo, NixOS)
+- 🔍 **Browse & Filter** – Explore all distributions with sorting and filtering options
 - 🎨 **Desktop Environments** – Recommendations for the right desktop (GNOME, KDE, Cinnamon, etc.)
 - ⚠️ **Deal-Breaker Warnings** – Honest hints about potential limitations
 - 📊 **Live Rankings** – See in real-time how your answers affect the recommendations
@@ -68,18 +69,23 @@ The development server will run at `http://localhost:5173`
 
 ```
 src/
-├── components/          # React components
-│   ├── LandingPage.tsx    # Landing page
-│   ├── Question.tsx       # Quiz questions
-│   ├── LiveSidebar.tsx    # Real-time rankings
-│   └── ResultsPage.tsx    # Results page
-├── context/             # React Context for quiz state
-├── data/                # Distro & question data
-│   ├── distros.ts         # 26+ distributions with attributes
-│   ├── questions.ts       # Quiz questions (German)
-│   └── desktopEnvironments.ts
-├── hooks/               # Custom React hooks
-└── utils/               # Scoring algorithm & helper functions
+├── components/              # React components
+│   ├── BrowseDistrosPage.tsx  # Browse all distributions with filters
+│   ├── DistroCard.tsx         # Individual distribution card
+│   ├── DistroFilters.tsx      # Filter controls for browsing
+│   ├── ErrorBoundary.tsx      # Error handling wrapper
+│   ├── LandingPage.tsx        # Landing page
+│   ├── Layout.tsx             # App layout with header/footer
+│   ├── LiveSidebar.tsx        # Real-time rankings during quiz
+│   ├── Question.tsx           # Quiz question component
+│   └── ResultsPage.tsx        # Results page with recommendations
+├── context/                 # React Context for quiz state
+├── data/                    # Distro & question data
+│   ├── distros.ts             # 26+ distributions with attributes
+│   ├── questions.ts           # Quiz questions (German)
+│   └── desktopEnvironments.ts # Desktop environment definitions
+├── hooks/                   # Custom React hooks
+└── utils/                   # Scoring algorithm & helper functions
 ```
 
 <p align="center">
