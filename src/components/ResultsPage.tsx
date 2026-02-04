@@ -53,7 +53,7 @@ export default function ResultsPage() {
   // Helper function to get download URL for a distro
   const getDownloadUrl = (distroId: string): string => {
     const distro = getDistroById(distroId);
-    return distro?.website || DOWNLOAD_LINKS[distroId] || '#';
+    return DOWNLOAD_LINKS[distroId] || distro?.website || '#';
   };
 
   // Toggle expanded state for alternative recommendations
@@ -130,8 +130,8 @@ export default function ResultsPage() {
   }, [resultWarnings, dealBreakerWarnings, warnings]);
 
   // Get download URL from distro data or fallback to DOWNLOAD_LINKS
-  const downloadUrl = topFullResult?.distro.website ||
-    DOWNLOAD_LINKS[topResult?.distroId || ''] ||
+  const downloadUrl = DOWNLOAD_LINKS[topResult?.distroId || ''] ||
+    topFullResult?.distro.website ||
     (topResult ? getDistroById(topResult.distroId)?.website : null) || '#';
 
   const handleStartOver = () => {
