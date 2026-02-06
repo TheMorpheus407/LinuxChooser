@@ -129,7 +129,7 @@ export default function ResultsPage() {
     return warningMessages;
   }, [resultWarnings, dealBreakerWarnings, warnings]);
 
-  // Get download URL from distro data or fallback to DOWNLOAD_LINKS
+  // Get download URL from DOWNLOAD_LINKS or fallback to distro website
   const downloadUrl = DOWNLOAD_LINKS[topResult?.distroId || ''] ||
     topFullResult?.distro.website ||
     (topResult ? getDistroById(topResult.distroId)?.website : null) || '#';
@@ -379,32 +379,34 @@ export default function ResultsPage() {
         </motion.div>
 
         {/* Website button */}
-        <motion.div
-          className="download-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-        >
-          <a
-            href={websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="download-button"
-            aria-label={`${topResult.name} Website (öffnet in neuem Tab)`}
+        {websiteUrl.replace(/\/+$/, '') !== downloadUrl.replace(/\/+$/, '') && websiteUrl !== '#' && (
+          <motion.div
+            className="website-section"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-            </svg>
-            {topResult.name} Website
-          </a>
-        </motion.div>
+            <a
+              href={websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="website-button"
+              aria-label={`Offizielle Webseite von ${topResult.name} (öffnet in neuem Tab)`}
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              Offizielle Webseite
+            </a>
+          </motion.div>
+        )}
 
         {/* Full Rankings */}
         <motion.section
           className="rankings-section"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
         >
           <h2 className="section-title">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -425,7 +427,7 @@ export default function ResultsPage() {
                   className={`ranking-item-container ${isExpanded ? 'expanded' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.9 + index * 0.05 }}
+                  transition={{ duration: 0.4, delay: 1.0 + index * 0.05 }}
                 >
                   <button
                     className="ranking-item ranking-item-clickable"
@@ -444,7 +446,7 @@ export default function ResultsPage() {
                           className="score-fill"
                           initial={{ width: 0 }}
                           animate={{ width: `${result.score}%` }}
-                          transition={{ duration: 0.5, delay: 1 + index * 0.05 }}
+                          transition={{ duration: 0.5, delay: 1.1 + index * 0.05 }}
                         />
                       </div>
                       <span className="score-text">{result.score}%</span>
@@ -521,7 +523,7 @@ export default function ResultsPage() {
           className="results-actions"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
         >
           <button className="share-button" onClick={handleShare}>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
