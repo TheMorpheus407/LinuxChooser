@@ -133,6 +133,8 @@ export default function ResultsPage() {
   const downloadUrl = DOWNLOAD_LINKS[topResult?.distroId || ''] ||
     topFullResult?.distro.website ||
     (topResult ? getDistroById(topResult.distroId)?.website : null) || '#';
+  const websiteUrl = topFullResult?.distro.website ||
+    (topResult ? getDistroById(topResult.distroId)?.website : null) || '#';
 
   const handleStartOver = () => {
     resetQuiz();
@@ -373,6 +375,27 @@ export default function ResultsPage() {
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
             </svg>
             {topResult.name} herunterladen
+          </a>
+        </motion.div>
+
+        {/* Website button */}
+        <motion.div
+          className="download-section"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
+          <a
+            href={websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-button"
+            aria-label={`${topResult.name} Website (öffnet in neuem Tab)`}
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            {topResult.name} Website
           </a>
         </motion.div>
 
