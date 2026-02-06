@@ -37,6 +37,7 @@ const packageManagerLabels: Record<string, string> = {
   apk: 'APK',
   'rpm-ostree': 'rpm-ostree',
   nix: 'Nix',
+  eopkg: 'eopkg',
 };
 
 // Map target audience to German labels

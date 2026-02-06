@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="solus-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5294e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b6db5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="120" fill="url(#solus-grad)" />
+  <path d="M128 40c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88-39.4-88-88-88zm0 20c37.5 0 68 30.5 68 68 0 12.8-3.6 24.8-9.8 35l-93.2-93.2c10.2-6.2 22.2-9.8 35-9.8zm-68 68c0-12.8 3.6-24.8 9.8-35l93.2 93.2c-10.2 6.2-22.2 9.8-35 9.8-37.5 0-68-30.5-68-68z" fill="white" opacity="0.95"/>
+</svg>

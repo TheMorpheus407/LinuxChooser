@@ -27,7 +27,7 @@ export interface Distro {
   defaultDE: string;
 
   // Package management
-  packageManager: 'apt' | 'dnf' | 'pacman' | 'zypper' | 'portage' | 'xbps' | 'apk' | 'rpm-ostree' | 'nix';
+  packageManager: 'apt' | 'dnf' | 'pacman' | 'zypper' | 'portage' | 'xbps' | 'apk' | 'rpm-ostree' | 'nix' | 'eopkg';
   hasAUR: boolean;
   hasFlatpak: boolean;
   hasSnap: boolean;
@@ -1386,6 +1386,59 @@ export const distros: Distro[] = [
     features: ['Budgie Desktop', 'Budgie Welcome', 'Ubuntu Basis', 'Moderne Oberfläche'],
     basedOn: 'ubuntu',
     secureBootSupport: 'full',
+  },
+  {
+    id: 'solus',
+    name: 'Solus',
+    logo: '/distros/solus.svg',
+    description: 'Unabhängige Distribution mit eigenem Budgie-Desktop. Kuratiertes Rolling Release für den Desktop.',
+    website: 'https://getsol.us',
+    version: '4.8 Opportunity',
+    releaseDate: '29. November 2025',
+
+    beginnerFriendly: 7,
+    stability: 8,
+    cuttingEdge: 7,
+    customizability: 6,
+    performance: 8,
+    gamingSupport: 7,
+    hardwareSupport: 7,
+    communitySupport: 4,
+    professionalUse: 6,
+    privacyFocus: 6,
+
+    availableDEs: ['budgie', 'gnome', 'kde', 'xfce'],
+    defaultDE: 'budgie',
+
+    packageManager: 'eopkg',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: false,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'semi-rolling',
+
+    minRAM: 4,
+    minStorage: 10,
+
+    features: ['Budgie Desktop', 'Eigener Paketmanager (eopkg)', 'Kuratiertes Rolling Release', 'Flatpak vorinstalliert', 'Vier Desktop-Editionen'],
+    warnings: [
+      'Kleinere Paketquellen (~12.000 Pakete) als Ubuntu oder Fedora',
+      'Kein AUR oder vergleichbares Community-Repository',
+      'Kleine Entwickler-Community - kein Unternehmens-Support',
+    ],
+    bestFor: [
+      'Desktop-Nutzer, die ein kuratiertes Erlebnis wollen',
+      'Budgie-Desktop-Fans',
+      'Nutzer, die eine unabhängige Distribution bevorzugen',
+    ],
+    notFor: [
+      'Server- und Enterprise-Nutzer',
+      'Nutzer, die ein riesiges Paket-Angebot brauchen',
+      'Nutzer mit spezieller Nischen-Software',
+    ],
+    installDifficulty: 3,
+    secureBootSupport: 'partial',
   },
   {
     id: 'ubuntu-studio',
