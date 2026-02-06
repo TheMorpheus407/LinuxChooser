@@ -1125,6 +1125,41 @@ button:disabled {
   height: 1.5rem;
 }
 
+/* Website button */
+.website-section {
+  text-align: center;
+}
+
+.website-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background: var(--bg-card);
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.website-button:hover {
+  transform: scale(1.02);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.website-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* Rankings */
 .rankings-section {
   padding: var(--spacing-lg);
