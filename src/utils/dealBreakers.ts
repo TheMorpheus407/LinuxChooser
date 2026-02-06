@@ -202,6 +202,32 @@ export function checkCompetitiveGaming(answers: UserAnswers): DealBreakerWarning
 }
 
 /**
+ * Check for Secure Boot compatibility issues
+ */
+export function checkSecureBootCompatibility(answers: UserAnswers): DealBreakerWarning | null {
+  const secureBoot = answers['secure-boot'] as string | undefined;
+
+  if (!secureBoot || secureBoot === 'not-needed' || secureBoot === 'unknown') {
+    return null;
+  }
+
+  const severity: 'warning' | 'critical' = secureBoot === 'required' ? 'critical' : 'warning';
+
+  return {
+    type: 'hardware',
+    severity,
+    title: severity === 'critical'
+      ? 'Wichtig: Secure Boot wird benoetigt'
+      : 'Hinweis: Secure Boot bevorzugt',
+    message: secureBoot === 'required'
+      ? 'Du benoetigst Secure Boot Unterstuetzung (z.B. fuer Dual-Boot mit Windows 11). Einige Distributionen unterstuetzen Secure Boot nicht oder nur eingeschraenkt.'
+      : 'Du wuerdest Secure Boot gerne aktiviert lassen. Nicht alle Distributionen unterstuetzen dies vollstaendig.',
+    suggestion: 'Distributionen wie Ubuntu, Fedora, openSUSE und Linux Mint unterstuetzen Secure Boot out-of-the-box. Bei anderen muss Secure Boot moeglicherweise deaktiviert werden.',
+    affectedItems: ['Secure Boot Kompatibilitaet'],
+  };
+}
+
+/**
  * Main function: Check all deal-breakers
  */
 export function checkDealBreakers(answers: UserAnswers): DealBreakerWarning[] {
@@ -233,6 +259,12 @@ export function checkDealBreakers(answers: UserAnswers): DealBreakerWarning[] {
     if (competitiveWarning) {
       warnings.push(competitiveWarning);
     }
+  }
+
+  // Check secure boot
+  const secureBootWarning = checkSecureBootCompatibility(answers);
+  if (secureBootWarning) {
+    warnings.push(secureBootWarning);
   }
 
   // Sort by severity (critical first)

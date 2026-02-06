@@ -613,6 +613,43 @@ export const questions: Question[] = [
       { id: 'unknown', text: 'Keins davon / Weiß nicht', icon: 'question' },
     ],
   },
+
+  // Secure Boot
+  {
+    id: 'secure-boot',
+    text: 'Brauchst du Secure Boot Unterstützung?',
+    description: 'Wenn du Windows 11 im Dual-Boot behalten willst, ist Secure Boot oft erforderlich',
+    category: 'hardware',
+    type: 'single',
+    required: false,
+    weight: 2,
+    options: [
+      {
+        id: 'required',
+        text: 'Ja, unbedingt',
+        description: 'Ich brauche Secure Boot (z.B. für Dual-Boot mit Windows 11)',
+        icon: 'shield-check',
+      },
+      {
+        id: 'preferred',
+        text: 'Wäre gut',
+        description: 'Ich würde Secure Boot gerne aktiviert lassen',
+        icon: 'shield',
+      },
+      {
+        id: 'not-needed',
+        text: 'Nicht nötig',
+        description: 'Ich kann Secure Boot deaktivieren',
+        icon: 'shield-off',
+      },
+      {
+        id: 'unknown',
+        text: 'Weiß ich nicht',
+        description: 'Ich bin mir nicht sicher was Secure Boot ist',
+        icon: 'question',
+      },
+    ],
+  },
 ];
 
 // Helper function to get question by ID

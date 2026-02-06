@@ -45,6 +45,8 @@ export interface UserProfile {
   hasProblematicGames: boolean;
   selectedGames: string[];
   needsProprietarySoftware: boolean;
+  needsSecureBoot: boolean;
+  prefersSecureBoot: boolean;
 }
 
 // Match result
@@ -100,6 +102,8 @@ export function buildUserProfile(answers: UserAnswers): UserProfile {
     hasProblematicGames: false,
     selectedGames: [],
     needsProprietarySoftware: false,
+    needsSecureBoot: false,
+    prefersSecureBoot: false,
   };
 
   // Process experience level
@@ -357,6 +361,18 @@ export function buildUserProfile(answers: UserAnswers): UserProfile {
       break;
   }
 
+  // Process secure boot requirement
+  const secureBoot = answers['secure-boot'] as string;
+  switch (secureBoot) {
+    case 'required':
+      profile.needsSecureBoot = true;
+      profile.prefersSecureBoot = true;
+      break;
+    case 'preferred':
+      profile.prefersSecureBoot = true;
+      break;
+  }
+
   return profile;
 }
 
@@ -475,6 +491,26 @@ export function calculateDistroMatch(profile: UserProfile, distro: Distro): numb
     // Bonus for distros with strong German communities
     if (['opensuse-tumbleweed', 'opensuse-leap', 'ubuntu', 'linux-mint'].includes(distro.id)) {
       score += 3;
+    }
+  }
+
+  // Secure Boot support
+  if (profile.needsSecureBoot || profile.prefersSecureBoot) {
+    const sbSupport = distro.secureBootSupport;
+    if (profile.needsSecureBoot) {
+      if (sbSupport === 'none') {
+        score -= 40; // Heavy penalty - user requires Secure Boot
+      } else if (sbSupport === 'partial') {
+        score -= 10; // Mild penalty - requires manual work
+      } else if (sbSupport === 'full') {
+        score += 5; // Bonus for full support
+      }
+    } else if (profile.prefersSecureBoot) {
+      if (sbSupport === 'none') {
+        score -= 15; // Moderate penalty
+      } else if (sbSupport === 'full') {
+        score += 3; // Small bonus
+      }
     }
   }
 
@@ -673,6 +709,11 @@ export function generateMatchReasons(
     reasons.push(`Flatpak-Unterstuetzung fuer zusaetzliche Software.`);
   }
 
+  // Secure Boot
+  if ((profile.needsSecureBoot || profile.prefersSecureBoot) && distro.secureBootSupport === 'full') {
+    reasons.push(`${distro.name} unterstuetzt Secure Boot vollstaendig - ideal fuer Dual-Boot mit Windows 11.`);
+  }
+
   // Ensure we have at least one reason
   if (reasons.length === 0) {
     reasons.push(`${distro.name} mit ${de.name} ist eine solide Wahl fuer deine Anforderungen.`);
@@ -732,6 +773,16 @@ export function generateWarnings(
       warnings.push(`${distro.name} ist nicht fuer Gaming geeignet.`);
     }
     warnings.push(`${distro.name} hat Einschraenkungen fuer den taeglichen Gebrauch.`);
+  }
+
+  // Secure Boot warnings
+  if (profile.needsSecureBoot || profile.prefersSecureBoot) {
+    const sbSupport = distro.secureBootSupport;
+    if (sbSupport === 'none') {
+      warnings.push(`${distro.name} unterstuetzt kein Secure Boot. Du musst Secure Boot im BIOS deaktivieren.`);
+    } else if (sbSupport === 'partial') {
+      warnings.push(`Secure Boot bei ${distro.name} erfordert manuelle Konfiguration (MOK-Schluessel registrieren).`);
+    }
   }
 
   return warnings.slice(0, 3); // Max 3 warnings

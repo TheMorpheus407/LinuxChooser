@@ -57,6 +57,9 @@ export interface Distro {
 
   // Base distro (for derivatives)
   basedOn?: string;
+
+  // Secure Boot support level
+  secureBootSupport?: 'full' | 'partial' | 'none';
 }
 
 export const distros: Distro[] = [
@@ -110,6 +113,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 2,
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'ubuntu',
@@ -136,7 +140,7 @@ export const distros: Distro[] = [
 
     packageManager: 'apt',
     hasAUR: false,
-    hasFlatpak: true,
+    hasFlatpak: false,
     hasSnap: true,
 
     targetAudience: ['beginner', 'intermediate', 'developer', 'server'],
@@ -147,6 +151,7 @@ export const distros: Distro[] = [
 
     features: ['Snap Store', 'Ubuntu Pro', 'Große Community', 'Lange Unterstützung (LTS)'],
     basedOn: 'debian',
+    secureBootSupport: 'full',
   },
   {
     id: 'fedora',
@@ -194,6 +199,7 @@ export const distros: Distro[] = [
       'Absolute Einsteiger',
       'Nutzer ohne Erfahrung mit Textbefehlen',
     ],
+    secureBootSupport: 'full',
   },
   {
     id: 'pop-os',
@@ -246,6 +252,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 3,
     basedOn: 'ubuntu',
+    secureBootSupport: 'none',
   },
   {
     id: 'manjaro',
@@ -267,8 +274,8 @@ export const distros: Distro[] = [
     professionalUse: 7,
     privacyFocus: 6,
 
-    availableDEs: ['kde', 'gnome', 'xfce', 'i3', 'sway', 'cinnamon', 'mate'],
-    defaultDE: 'kde',
+    availableDEs: ['kde', 'gnome', 'xfce', 'i3', 'sway', 'cinnamon'],
+    defaultDE: 'xfce',
 
     packageManager: 'pacman',
     hasAUR: true,
@@ -283,6 +290,7 @@ export const distros: Distro[] = [
 
     features: ['Manjaro Hardware Detection', 'System-Verwaltung', 'AUR Zugang', 'Eigene Software-Quellen'],
     basedOn: 'arch',
+    secureBootSupport: 'partial',
   },
   {
     id: 'arch',
@@ -317,6 +325,7 @@ export const distros: Distro[] = [
     minStorage: 10,
 
     features: ['Arch Wiki', 'AUR', 'Pacman', 'Minimale Basis-Installation'],
+    secureBootSupport: 'partial',
   },
   {
     id: 'debian',
@@ -364,6 +373,7 @@ export const distros: Distro[] = [
       'Nutzer, die neueste Software wollen',
       'Gaming-Enthusiasten',
     ],
+    secureBootSupport: 'full',
   },
   {
     id: 'opensuse-tumbleweed',
@@ -400,6 +410,7 @@ export const distros: Distro[] = [
     minStorage: 40,
 
     features: ['YaST', 'Automatische Qualitätstests', 'System-Schnappschüsse', 'Open Build Service'],
+    secureBootSupport: 'full',
   },
   {
     id: 'opensuse-leap',
@@ -421,7 +432,7 @@ export const distros: Distro[] = [
     professionalUse: 10,
     privacyFocus: 7,
 
-    availableDEs: ['kde', 'gnome', 'xfce'],
+    availableDEs: ['kde', 'gnome', 'xfce', 'cinnamon', 'lxqt', 'budgie', 'sway'],
     defaultDE: 'kde',
 
     packageManager: 'zypper',
@@ -436,6 +447,7 @@ export const distros: Distro[] = [
     minStorage: 40,
 
     features: ['YaST', 'Enterprise-Qualität', 'System-Schnappschüsse', 'SUSE Support möglich'],
+    secureBootSupport: 'full',
   },
   {
     id: 'zorin',
@@ -457,7 +469,7 @@ export const distros: Distro[] = [
     professionalUse: 6,
     privacyFocus: 5,
 
-    availableDEs: ['gnome', 'xfce'],
+    availableDEs: ['gnome'],
     defaultDE: 'gnome',
 
     packageManager: 'apt',
@@ -473,6 +485,7 @@ export const distros: Distro[] = [
 
     features: ['Windows-Look', 'Zorin Appearance', 'Zorin Connect', 'Wine vorinstalliert'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'elementary',
@@ -523,6 +536,7 @@ export const distros: Distro[] = [
       'Nutzer, die immer die allerneueste Software brauchen',
     ],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'endeavouros',
@@ -531,7 +545,7 @@ export const distros: Distro[] = [
     description: 'Arch Linux mit grafischem Installer und freundlicher Community. Fast reines Arch.',
     website: 'https://endeavouros.com',
     version: 'Ganymede Neo',
-    releaseDate: '12. Januar 2026',
+    releaseDate: '15. Januar 2026',
 
     beginnerFriendly: 5,
     stability: 7,
@@ -544,7 +558,7 @@ export const distros: Distro[] = [
     professionalUse: 7,
     privacyFocus: 8,
 
-    availableDEs: ['kde', 'gnome', 'xfce', 'i3', 'sway', 'mate', 'cinnamon', 'budgie', 'lxqt', 'hyprland'],
+    availableDEs: ['kde', 'gnome', 'xfce', 'i3', 'mate', 'cinnamon', 'budgie', 'lxqt'],
     defaultDE: 'kde',
 
     packageManager: 'pacman',
@@ -571,6 +585,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 3,
     basedOn: 'arch',
+    secureBootSupport: 'none',
   },
   {
     id: 'nobara',
@@ -579,7 +594,7 @@ export const distros: Distro[] = [
     description: 'Gaming-fokussierte Fedora-Variante vom Proton-GE-Entwickler GloriousEggroll. Gaming sofort startklar.',
     website: 'https://nobaraproject.org',
     version: '43',
-    releaseDate: '27. Dezember 2025',
+    releaseDate: '26. Dezember 2025',
 
     beginnerFriendly: 7,
     stability: 6,
@@ -624,6 +639,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 3,
     basedOn: 'fedora',
+    secureBootSupport: 'none',
   },
   {
     id: 'garuda',
@@ -659,6 +675,7 @@ export const distros: Distro[] = [
 
     features: ['Garuda Gamer', 'System-Schnappschüsse', 'Performance-Optimierungen', 'Gaming Tools vorinstalliert'],
     basedOn: 'arch',
+    secureBootSupport: 'partial',
   },
   {
     id: 'cachyos',
@@ -713,6 +730,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 4,
     basedOn: 'arch',
+    secureBootSupport: 'partial',
   },
   {
     id: 'mx-linux',
@@ -748,6 +766,7 @@ export const distros: Distro[] = [
 
     features: ['MX Tools', 'Live USB', 'Ressourcenschonend', 'Gute Hardware-Erkennung'],
     basedOn: 'debian',
+    secureBootSupport: 'partial',
   },
   {
     id: 'tails',
@@ -783,6 +802,7 @@ export const distros: Distro[] = [
 
     features: ['Tor Browser', 'Amnesic System', 'Verschlüsselung', 'Keine Spuren'],
     basedOn: 'debian',
+    secureBootSupport: 'partial',
   },
   {
     id: 'qubes',
@@ -817,6 +837,7 @@ export const distros: Distro[] = [
     minStorage: 128,
 
     features: ['Sicherheit durch Abschottung', 'Virtuelle Computer', 'Einweg-Systeme', 'Whonix Integration'],
+    secureBootSupport: 'none',
   },
   {
     id: 'kubuntu',
@@ -852,6 +873,7 @@ export const distros: Distro[] = [
 
     features: ['KDE Plasma', 'Discover App Store', 'Ubuntu Basis', 'Anpassbar'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'void',
@@ -886,6 +908,7 @@ export const distros: Distro[] = [
     minStorage: 10,
 
     features: ['Eigene System-Verwaltung', 'Eigenes Programm zum Installieren von Software', 'Leichtgewichtige Option', 'Unabhängig'],
+    secureBootSupport: 'none',
   },
   {
     id: 'gentoo',
@@ -920,6 +943,7 @@ export const distros: Distro[] = [
     minStorage: 30,
 
     features: ['Portage', 'Anpassungsoptionen', 'Aus Quellcode erstellt', 'Maximale Optimierung'],
+    secureBootSupport: 'partial',
   },
   {
     id: 'nixos',
@@ -954,6 +978,7 @@ export const distros: Distro[] = [
     minStorage: 30,
 
     features: ['Nix (Programm zum Installieren von Software)', 'Beschreibbare Konfiguration', 'Änderungen rückgängig machen', 'Reproduzierbar'],
+    secureBootSupport: 'partial',
   },
   {
     id: 'bazzite',
@@ -992,7 +1017,7 @@ export const distros: Distro[] = [
     features: ['Steam Gaming Mode', 'Änderungen bis zu 90 Tage rückgängig machen', 'Android-Apps möglich', 'Handheld-Support'],
     warnings: [
       'Geschütztes System (Programme werden anders installiert)',
-      'NVIDIA-Support in Beta',
+      'NVIDIA im Gaming Mode (Steam Deck-Modus) in Beta, Desktop-NVIDIA stabil',
       'Anti-Cheat-Spiele (Valorant, Fortnite) funktionieren nicht',
     ],
     bestFor: [
@@ -1006,6 +1031,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 3,
     basedOn: 'fedora',
+    secureBootSupport: 'partial',
   },
   {
     id: 'antix',
@@ -1038,8 +1064,8 @@ export const distros: Distro[] = [
     targetAudience: ['advanced', 'intermediate'],
     releaseModel: 'fixed',
 
-    minRAM: 0.25, // 256 MB
-    minStorage: 5,
+    minRAM: 0.5, // 512 MB (official recommended minimum; 256 MB only for core/net without desktop)
+    minStorage: 10,
 
     features: ['Eigene System-Verwaltung', 'Extrem ressourcenschonend', 'Live-USB persistenz', 'antiX Control Centre'],
     warnings: [
@@ -1059,6 +1085,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 5,
     basedOn: 'debian',
+    secureBootSupport: 'none',
   },
   {
     id: 'puppy',
@@ -1094,7 +1121,7 @@ export const distros: Distro[] = [
     minRAM: 0.128, // 128 MB
     minStorage: 0.5, // 512 MB
 
-    features: ['Läuft komplett im RAM', 'Extrem klein (~500 MB)', 'Portable auf USB', 'Systemrettung'],
+    features: ['Läuft komplett im RAM', 'Extrem klein (~300–800 MB je nach Variante)', 'Portable auf USB', 'Systemrettung'],
     warnings: [
       'Standardmäßig als Root ausgeführt',
       'Ungewöhnliche Paket-Formate (PET, SFS)',
@@ -1111,6 +1138,7 @@ export const distros: Distro[] = [
       'Einsteiger',
     ],
     installDifficulty: 5,
+    secureBootSupport: 'none',
   },
   {
     id: 'linuxlite',
@@ -1164,6 +1192,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 2,
     basedOn: 'ubuntu',
+    secureBootSupport: 'partial',
   },
   {
     id: 'lubuntu',
@@ -1171,8 +1200,8 @@ export const distros: Distro[] = [
     logo: '/distros/lubuntu.svg',
     description: 'Ubuntu für ältere Computer. Leichtgewichtigste offizielle Ubuntu-Variante mit LXQt.',
     website: 'https://lubuntu.me',
-    version: '25.10',
-    releaseDate: '9. Oktober 2025',
+    version: '24.04 LTS',
+    releaseDate: '25. April 2024',
 
     beginnerFriendly: 7,
     stability: 8,
@@ -1216,6 +1245,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 2,
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'xubuntu',
@@ -1265,6 +1295,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 2,
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'kdeneon',
@@ -1318,6 +1349,7 @@ export const distros: Distro[] = [
     ],
     installDifficulty: 4,
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'ubuntu-budgie',
@@ -1353,6 +1385,7 @@ export const distros: Distro[] = [
 
     features: ['Budgie Desktop', 'Budgie Welcome', 'Ubuntu Basis', 'Moderne Oberfläche'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'ubuntu-studio',
@@ -1388,6 +1421,7 @@ export const distros: Distro[] = [
 
     features: ['Low-Latency Kernel', 'Audio Production', 'Video Editing', 'Grafik Tools', 'KDE Plasma'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'ubuntu-mate',
@@ -1423,6 +1457,7 @@ export const distros: Distro[] = [
 
     features: ['MATE Desktop', 'Compiz', 'Ubuntu Basis', 'Traditionelles Layout'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
   {
     id: 'ubuntu-cinnamon',
@@ -1458,6 +1493,7 @@ export const distros: Distro[] = [
 
     features: ['Cinnamon Desktop', 'Windows-ähnlich', 'Ubuntu Basis', 'Nemo Dateimanager'],
     basedOn: 'ubuntu',
+    secureBootSupport: 'full',
   },
 ];
 

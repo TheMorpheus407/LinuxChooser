@@ -42,7 +42,7 @@ export const problematicGames: Game[] = [
     status: 'anticheat',
     antiCheat: 'Vanguard',
     antiCheatType: 'kernel-level',
-    reason: 'Seit Patch 14.4 (2024) verwendet LoL Vanguard Anti-Cheat. Vorher funktionierte es via Wine/Lutris.',
+    reason: 'Seit Patch 14.9 (Mai 2024) verwendet LoL Vanguard Anti-Cheat. Vorher funktionierte es via Wine/Lutris.',
     howToPlay: 'Nicht möglich auf Linux',
     workaround: 'Dual-Boot mit Windows oder Cloud-Gaming (GeForce NOW, Shadow).',
     warnings: [
@@ -83,9 +83,9 @@ export const problematicGames: Game[] = [
     id: 'pubg',
     name: 'PUBG: Battlegrounds',
     status: 'anticheat',
-    antiCheat: 'Zakynthos',
+    antiCheat: 'Zakynthos + BattlEye',
     antiCheatType: 'kernel-level',
-    reason: 'Proprietäres Kernel-Level Anti-Cheat, das nur unter Windows funktioniert.',
+    reason: 'Mehrstufiges Anti-Cheat-System: Zakynthos (proprietär) als Dach mit BattlEye und Wellbia als zusätzliche Kernel-Level-Schichten. Keines davon ist für Linux aktiviert.',
     howToPlay: 'Nicht möglich auf Linux',
     workaround: 'Dual-Boot mit Windows erforderlich.',
     protonDbUrl: 'https://www.protondb.com/app/578080',
@@ -443,9 +443,8 @@ export const antiCheatInfo = {
     examples: [
       'Vanguard (Riot Games - Valorant, LoL)',
       'RICOCHET (Activision - Call of Duty)',
-      'Zakynthos (PUBG)',
+      'Zakynthos + BattlEye (PUBG)',
       'EA Anti-Cheat (EA Sports)',
-      'Hyperion (Roblox)',
     ],
   },
   linuxCompatible: {
