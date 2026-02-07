@@ -108,7 +108,7 @@ export default function Question() {
           >
             Zur Startseite
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
             </svg>
           </motion.button>
         </motion.div>
@@ -122,14 +122,22 @@ export default function Question() {
   const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
 
   const handleOptionSelect = (optionId: string) => {
-    if (currentQuestion.type === 'single') {
-      setAnswer(currentQuestion.id, [optionId]);
+    if (optionId === 'none') {
+      setAnswer(currentQuestion.id, ['none']);
     } else {
-      // Multiple selection
-      const newSelection = selectedOptions.includes(optionId)
-        ? selectedOptions.filter(id => id !== optionId)
-        : [...selectedOptions, optionId];
-      setAnswer(currentQuestion.id, newSelection);
+      if (selectedOptions.includes('none')) {
+        setAnswer(currentQuestion.id, [optionId]);
+      } else {
+        if (currentQuestion.type === 'single') {
+          setAnswer(currentQuestion.id, [optionId]);
+        } else {
+          const newSelection = selectedOptions.includes(optionId)
+            ? selectedOptions.filter(id => id !== optionId)
+            : [...selectedOptions, optionId];
+
+          setAnswer(currentQuestion.id, newSelection);
+        }
+      }
     }
   };
 
@@ -205,7 +213,7 @@ export default function Question() {
         aria-label={currentQuestionIndex === 0 ? 'Zurück zur Startseite' : 'Zurück zur vorherigen Frage'}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
         </svg>
         Zurück
       </motion.button>
@@ -278,7 +286,7 @@ export default function Question() {
                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                         aria-hidden="true"
                       >
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                       </motion.svg>
                     )}
                   </div>
@@ -302,7 +310,7 @@ export default function Question() {
             aria-live="polite"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="warning-icon" aria-hidden="true">
-              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
             </svg>
             <div className="warning-content">
               <strong>Bitte beantworte mehr Fragen</strong>
@@ -317,7 +325,7 @@ export default function Question() {
               aria-label="Hinweis schliessen"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
             </button>
           </motion.div>
@@ -344,10 +352,11 @@ export default function Question() {
           whileHover={canProceed ? { scale: 1.05 } : {}}
           whileTap={canProceed ? { scale: 0.95 } : {}}
           aria-disabled={!canProceed}
+          style={{ marginLeft: currentQuestion.required ? 'auto' : '' }} // Füge dies hinzu
         >
           {currentQuestionIndex >= visibleQuestions.length - 1 ? 'Ergebnis anzeigen' : 'Weiter'}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
           </svg>
         </motion.button>
       </div>
