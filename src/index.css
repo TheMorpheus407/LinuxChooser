@@ -627,6 +627,10 @@ button:disabled {
   margin-top: var(--spacing-xl);
 }
 
+.question-navigation > button {
+  flex-grow: 0;
+}
+
 @media (max-width: 1023px) {
   .question-navigation {
     position: sticky;
