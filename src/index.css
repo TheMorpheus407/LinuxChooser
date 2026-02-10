@@ -627,10 +627,6 @@ button:disabled {
   margin-top: var(--spacing-xl);
 }
 
-.question-navigation > button {
-  flex-grow: 0;
-}
-
 @media (max-width: 1023px) {
   .question-navigation {
     position: sticky;
@@ -661,6 +657,7 @@ button:disabled {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
+  margin-left: auto;
   background: var(--accent-gradient);
   color: white;
   font-family: var(--font-family-heading);

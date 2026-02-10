@@ -124,21 +124,23 @@ export default function Question() {
   const handleOptionSelect = (optionId: string) => {
     if (optionId === 'none') {
       setAnswer(currentQuestion.id, ['none']);
-    } else {
-      if (selectedOptions.includes('none')) {
-        setAnswer(currentQuestion.id, [optionId]);
-      } else {
-        if (currentQuestion.type === 'single') {
-          setAnswer(currentQuestion.id, [optionId]);
-        } else {
-          const newSelection = selectedOptions.includes(optionId)
-            ? selectedOptions.filter(id => id !== optionId)
-            : [...selectedOptions, optionId];
-
-          setAnswer(currentQuestion.id, newSelection);
-        }
-      }
+      return;
     }
+
+    if (selectedOptions.includes('none')) {
+      setAnswer(currentQuestion.id, [optionId]);
+      return;
+    }
+
+    if (currentQuestion.type === 'single') {
+      setAnswer(currentQuestion.id, [optionId]);
+      return;
+    }
+
+    const newSelection = selectedOptions.includes(optionId)
+      ? selectedOptions.filter(id => id !== optionId)
+      : [...selectedOptions, optionId];
+    setAnswer(currentQuestion.id, newSelection);
   };
 
   const handleNext = () => {
@@ -352,7 +354,6 @@ export default function Question() {
           whileHover={canProceed ? { scale: 1.05 } : {}}
           whileTap={canProceed ? { scale: 0.95 } : {}}
           aria-disabled={!canProceed}
-          style={{ marginLeft: currentQuestion.required ? 'auto' : '' }} // Füge dies hinzu
         >
           {currentQuestionIndex >= visibleQuestions.length - 1 ? 'Ergebnis anzeigen' : 'Weiter'}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
