@@ -41,6 +41,7 @@ const DOWNLOAD_LINKS: Record<string, string> = {
   'lubuntu': 'https://lubuntu.me/downloads/',
   'kdeneon': 'https://neon.kde.org/download',
   'xubuntu': 'https://xubuntu.org/download/',
+  'almalinux': 'https://almalinux.org/get-almalinux/',
 };
 
 export default function ResultsPage() {

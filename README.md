@@ -31,7 +31,7 @@ An interactive quiz that helps users find the best Linux distribution based on t
 | **Privacy**       | Tails, Qubes OS                                         |
 | **Expert**        | Arch Linux, EndeavourOS, Void Linux, Gentoo, NixOS      |
 | **Lightweight**   | antiX, Puppy Linux, Lubuntu, MX Linux                   |
-| **Server/Stable** | Debian                                                  |
+| **Server/Stable** | Debian, AlmaLinux                                       |
 
 ## 🛠️ Local Development
 

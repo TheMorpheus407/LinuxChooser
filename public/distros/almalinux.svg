@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="alma-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F4880;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#072B4F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="40" fill="url(#alma-grad)" />
+  <g transform="translate(128,128)">
+    <path d="M0-72 L42 0 L0 72 L-42 0 Z" fill="white" opacity="0.95"/>
+    <circle cx="0" cy="0" r="20" fill="url(#alma-grad)"/>
+    <circle cx="0" cy="-50" r="8" fill="white" opacity="0.7"/>
+    <circle cx="0" cy="50" r="8" fill="white" opacity="0.7"/>
+    <circle cx="-50" cy="0" r="8" fill="white" opacity="0.7"/>
+    <circle cx="50" cy="0" r="8" fill="white" opacity="0.7"/>
+  </g>
+</svg>

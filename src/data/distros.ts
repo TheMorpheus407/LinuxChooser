@@ -450,6 +450,60 @@ export const distros: Distro[] = [
     secureBootSupport: 'full',
   },
   {
+    id: 'almalinux',
+    name: 'AlmaLinux',
+    logo: '/distros/almalinux.svg',
+    description: 'Kostenfreie, RHEL-kompatible Enterprise-Distribution der AlmaLinux OS Foundation. Ideal für Server und professionelle Umgebungen mit langfristigem Support.',
+    website: 'https://almalinux.org',
+    version: '10.1',
+    releaseDate: 'November 2025',
+
+    beginnerFriendly: 4,
+    stability: 10,
+    cuttingEdge: 3,
+    customizability: 6,
+    performance: 7,
+    gamingSupport: 3,
+    hardwareSupport: 8,
+    communitySupport: 4,
+    professionalUse: 10,
+    privacyFocus: 7,
+
+    availableDEs: ['gnome', 'kde'],
+    defaultDE: 'gnome',
+
+    packageManager: 'dnf',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: false,
+
+    targetAudience: ['intermediate', 'advanced', 'server', 'developer'],
+    releaseModel: 'fixed',
+
+    minRAM: 2,
+    minStorage: 20,
+
+    features: ['RHEL-kompatibel (ABI/Binär)', 'Langzeit-Support (bis 2035)', 'SELinux standardmäßig aktiviert', 'FIPS-Modus verfügbar (versionsabhängig)', 'Kostenlose Enterprise-Distribution'],
+    warnings: [
+      'Primär für Server - Desktop-Nutzung erfordert Zusatzkonfiguration',
+      'Ältere Softwareversionen im Vergleich zu Fedora oder Arch',
+      'Kleine deutschsprachige Community',
+    ],
+    bestFor: [
+      'Server und Produktionssysteme',
+      'RHEL-kompatible Unternehmensumgebungen',
+      'Multi-Server-Setups und Cloud-Workloads',
+      'CentOS-Umsteiger',
+    ],
+    notFor: [
+      'Desktop-Einsteiger',
+      'Gamer',
+      'Nutzer, die immer die allerneueste Software wollen',
+    ],
+    installDifficulty: 5,
+    secureBootSupport: 'full',
+  },
+  {
     id: 'zorin',
     name: 'Zorin OS',
     logo: '/distros/zorin.svg',
