@@ -42,6 +42,7 @@ const DOWNLOAD_LINKS: Record<string, string> = {
   'kdeneon': 'https://neon.kde.org/download',
   'xubuntu': 'https://xubuntu.org/download/',
   'almalinux': 'https://almalinux.org/get-almalinux/',
+  'tuxedo-os': 'https://os.tuxedocomputers.com/',
 };
 
 export default function ResultsPage() {

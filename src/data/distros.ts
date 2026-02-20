@@ -255,6 +255,67 @@ export const distros: Distro[] = [
     secureBootSupport: 'none',
   },
   {
+    id: 'tuxedo-os',
+    name: 'Tuxedo OS',
+    logo: '/distros/tuxedoos.svg',
+    description: 'KDE-zentrierte, Ubuntu-LTS-basierte Distribution von TUXEDO Computers (Augsburg). Semi-Rolling-Modell mit aktuellen Desktop-Komponenten, eigenen Treibern und Hardware-Tools.',
+    website: 'https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo',
+    version: 'Rolling (Basis: Ubuntu 24.04)',
+    releaseDate: 'Kontinuierlich',
+
+    beginnerFriendly: 7,
+    stability: 8,
+    cuttingEdge: 7,
+    customizability: 8,
+    performance: 7,
+    gamingSupport: 7,
+    hardwareSupport: 8,
+    communitySupport: 7,
+    professionalUse: 7,
+    privacyFocus: 7,
+
+    availableDEs: ['kde'],
+    defaultDE: 'kde',
+
+    packageManager: 'apt',
+    hasAUR: false,
+    hasFlatpak: true,
+    hasSnap: false,
+
+    targetAudience: ['beginner', 'intermediate'],
+    releaseModel: 'semi-rolling',
+
+    minRAM: 4,
+    minStorage: 25,
+
+    features: [
+      'TUXEDO Control Center (Leistungs-/Lüfter-/Akkuprofile)',
+      'Eigene DKMS-Treiber für TUXEDO-Hardware',
+      'Semi-Rolling: aktuelle KDE-/Mesa-/Kernel-Updates auf LTS-Basis',
+      'Snap-frei (Firefox als .deb)',
+      'WebFAI Werksinstallation und Recovery',
+    ],
+    warnings: [
+      'Secure Boot nicht offiziell unterstützt (manueller MOK-Import möglich)',
+      'Voller Support nur für TUXEDO-Hardware - Fremdhardware auf Best-Effort-Basis',
+      'LTS-Basiswechsel (z.B. 22.04 auf 24.04) können aufwendig sein',
+    ],
+    bestFor: [
+      'TUXEDO-Hardware-Besitzer',
+      'KDE-Plasma-Enthusiasten',
+      'Desktop-Nutzer, die aktuelle Software auf stabiler Basis wollen',
+      'Nutzer, die eine deutsche Distribution mit Firmensupport suchen',
+    ],
+    notFor: [
+      'Server-Administratoren',
+      'Nutzer, die Secure Boot zwingend benötigen',
+      'Nutzer ohne TUXEDO-Hardware, die vollen Support erwarten',
+    ],
+    installDifficulty: 3,
+    basedOn: 'ubuntu',
+    secureBootSupport: 'partial',
+  },
+  {
     id: 'manjaro',
     name: 'Manjaro',
     logo: '/distros/manjaro.svg',

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="tux-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A2B3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1B2A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="40" fill="url(#tux-grad)" />
+  <g transform="translate(128,120)">
+    <!-- Penguin body -->
+    <ellipse cx="0" cy="10" rx="42" ry="55" fill="#E8E8E8"/>
+    <!-- Tuxedo jacket -->
+    <path d="M-42 10 Q-42-45 0-50 Q42-45 42 10 L30 60 Q0 40-30 60 Z" fill="#1A2B3C" stroke="#4A9BD9" stroke-width="1.5"/>
+    <!-- White chest -->
+    <ellipse cx="0" cy="15" rx="20" ry="35" fill="white" opacity="0.95"/>
+    <!-- Head -->
+    <circle cx="0" cy="-55" r="30" fill="#1A2B3C"/>
+    <!-- Eyes -->
+    <circle cx="-10" cy="-58" r="5" fill="white"/>
+    <circle cx="10" cy="-58" r="5" fill="white"/>
+    <circle cx="-9" cy="-57" r="2.5" fill="#0D1B2A"/>
+    <circle cx="11" cy="-57" r="2.5" fill="#0D1B2A"/>
+    <!-- Beak -->
+    <path d="M-6-46 L0-40 L6-46 Z" fill="#E8A030"/>
+    <!-- Bow tie -->
+    <path d="M-10-20 L0-15 L10-20 L0-25 Z" fill="#4A9BD9"/>
+  </g>
+</svg>

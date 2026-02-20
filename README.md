@@ -26,7 +26,7 @@ An interactive quiz that helps users find the best Linux distribution based on t
 | Category          | Distributions                                           |
 | ----------------- | ------------------------------------------------------- |
 | **Beginner**      | Linux Mint, Ubuntu, Zorin OS, elementary OS, Linux Lite |
-| **Intermediate**  | Fedora, Pop!\_OS, openSUSE, Manjaro, Kubuntu, KDE neon  |
+| **Intermediate**  | Fedora, Pop!\_OS, Tuxedo OS, openSUSE, Manjaro, Kubuntu, KDE neon |
 | **Gaming**        | Nobara, Bazzite, Garuda Linux                           |
 | **Privacy**       | Tails, Qubes OS                                         |
 | **Expert**        | Arch Linux, EndeavourOS, Void Linux, Gentoo, NixOS      |
