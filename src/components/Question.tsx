@@ -278,18 +278,37 @@ export default function Question() {
                       </span>
                     )}
                   </div>
-                  <div className={`option-checkbox ${isRadio ? 'radio' : ''}`} aria-hidden="true">
+                  <div
+                    className={`option-checkbox ${isRadio ? 'radio' : ''}`}
+                    style={isRadio ? { borderRadius: '50%' } : undefined}
+                    aria-hidden="true"
+                  >
                     {isSelected && (
-                      <motion.svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                        aria-hidden="true"
-                      >
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </motion.svg>
+                      isRadio ? (
+                        <motion.div
+                          style={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: '50%',
+                            backgroundColor: 'currentColor',
+                          }}
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <motion.svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                          aria-hidden="true"
+                        >
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </motion.svg>
+                      )
                     )}
                   </div>
                 </motion.button>
